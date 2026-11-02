@@ -92,10 +92,11 @@ input:focus{border-color:var(—cyan)}
 .timer.warning{color:#ff7777;border-color:#ff7777;animation:pulse .7s infinite alternate}
 @keyframes pulse{to{opacity:.5}}
 .task{
-margin:22px 0;padding:22px;background:#0a1629;border:1px solid var(—line);
+ margin:22px 0;padding:22px;background:#0a1629;border:1px solid var(—line);
  border-radius:16px;
 }
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.
+ choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
 .choice{
  padding:17px;border-radius:12px;border:1px solid #344b6c;
  background:#14243b;color:white;text-align:right;
@@ -196,12 +197,12 @@ margin:22px 0;padding:22px;background:#0a1629;border:1px solid var(—line);
 </section>
 
 <section id="finish" class="panel hidden">
-<div class="eyebrow">MISSION COMPLETED</div>
+ <div class="eyebrow">MISSION COMPLETED</div>
  <h1>أحسنت، أيها القائد!</h1>
  <p>وصلت إلى نهاية الرحلة واكتشفت محطات من إنجاز ريانة برناوي وعلي القرني.</p>
  <div class="stats">
   <div class="stat"><strong id="finalScore">0</strong><small>النقاط</small></div>
-  <div class="stat"><strong id="finalTime">0</strong><small>إجمالي الوقت (ثانية)</small></div>
+  <div class="stat"><strong id="finalTime">0</strong><small>إجمالي الوقت</small></div>
   <div class="stat"><strong>4/4</strong><small>المراحل المكتملة</small></div>
  </div>
  <div class="certificate" id="certificate">
@@ -280,7 +281,7 @@ const stages = [
  title:"العودة إلى الأرض",
  intro:"اقتربت نهاية الرحلة. أجب عن السؤال الأخير لتكمل سجل المهمة.",
  question:"في أي تاريخ عادت مركبة Dragon Freedom بطاقم AX-2 إلى الأرض؟",
-choices:["21 مايو 2023","22 مايو 2023","30 مايو 2023","5 يونيو 2023"],
+ choices:["21 مايو 2023","22 مايو 2023","30 مايو 2023","5 يونيو 2023"],
  answer:2,
  date:"30 مايو 2023",
  eventTitle:"العودة بعد إنجاز المهمة",
@@ -375,7 +376,9 @@ function nextStage(){
 function endGame(){
  clearInterval(timerInterval);
  document.getElementById("finalScore").textContent=score;
- document.getElementById("finalTime").textContent=totalElapsed;
+ const m=Math.floor(totalElapsed/60);
+ const s=totalElapsed%60;
+ document.getElementById("finalTime").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
  document.getElementById("certName").textContent=player;
  document.getElementById("certScore").textContent=score+" نقطة";
  saveResult();
@@ -383,21 +386,24 @@ function endGame(){
 }
 function saveResult(){
  let list=JSON.parse(localStorage.getItem("ax2_leaderboard")||"[]");
- list.push({name:player,score:score,time:totalElapsed,date:new Date().toLocaleDateString("ar-SA")});
- list.sort((a,b)=>b.score-a.score||a.time-b.time);
- localStorage.setItem("ax2_leaderboard",JSON.stringify(list.slice(0,20)));
+ const m=Math.floor(totalElapsed/60);
+ const s=totalElapsed%60;
+ const timeFormatted=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+ list.push({name:player,score:score,time:timeFormatted,rawTime:totalElapsed,date:new Date().toLocaleDateString("ar-SA")});
+ list.sort((a,b)=>b.score-a.score||a.rawTime-b.rawTime);
+ localStorage.
+  setItem("ax2_leaderboard",JSON.stringify(list.slice(0,20)));
 }
 function showBoard(){
  previousSection=document.getElementById("finish").classList.contains("hidden")?"event":"finish";
- const list=JSON.
-parse(localStorage.getItem("ax2_leaderboard")||"[]");
+ const list=JSON.parse(localStorage.getItem("ax2_leaderboard")||"[]");
  const body=document.getElementById("boardBody");body.innerHTML="";
  if(!list.length){
   body.innerHTML='<tr><td colspan="4">لا توجد نتائج حتى الآن</td></tr>';
  }else{
   list.forEach((r,i)=>{
    const tr=document.createElement("tr");
-   [i+1,r.name,r.score,r.time+" ث"].forEach(v=>{
+   [i+1,r.name,r.score,r.time].forEach(v=>{
     const td=document.createElement("td");td.textContent=v;tr.appendChild(td);
    });
    body.appendChild(tr);
