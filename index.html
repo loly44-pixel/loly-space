@@ -8,128 +8,117 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
 
 :root{
- —bg:#070d1b;—panel:#101b30;—panel2:#15243c;
- —cyan:#62e5f3;—gold:#f5c66b;—white:#f4f7ff;
- —muted:#9aabc5;—line:#293b58;—green:#68e0ad;
+ —bg:#0b1329;—panel:#111c38;—panel2:#1a284d;
+ —cyan:#38bdf8;—gold:#fbbf24;—white:#ffffff;
+ —muted:#cbd5e1;—line:#2e4066;—green:#22c55e;—red:#ef4444;
 }
 *{box-sizing:border-box}
 body{
- margin:0;background:
- radial-gradient(circle at 15% 10%,#152c4b 0,transparent 35%),
- radial-gradient(circle at 90% 70%,#14253e 0,transparent 35%),var(—bg);
+ margin:0;background:var(—bg);
  color:var(—white);font-family:'IBM Plex Sans Arabic',sans-serif;
  min-height:100vh;
 }
 button,input{font:inherit}
 button{cursor:pointer}
 header{
- padding:20px 6%;display:flex;justify-content:space-between;
- align-items:center;border-bottom:1px solid var(—line);
+ padding:22px 6%;display:flex;justify-content:space-between;
+ align-items:center;border-bottom:2px solid var(—line);
+ background:#080e1f;
 }
-.logo{font-weight:700;letter-spacing:2px;color:var(—cyan)}
+.logo{font-weight:700;letter-spacing:2px;color:var(—cyan);font-size:19px}
 .logo span{color:var(—gold)}
-.top-tag{color:var(—muted);font-size:12px}
-.container{width:min(950px,92%);margin:35px auto 70px}
+.top-tag{color:var(—muted);font-size:14px;font-weight:500}
+.container{width:min(950px,92%);margin:40px auto 70px}
 .panel{
- background:linear-gradient(145deg,#122039,#0d1729);
- border:1px solid var(—line);border-radius:22px;padding:28px;
- box-shadow:0 20px 60px #0005;
+ background:var(—panel);
+ border:2px solid var(—line);border-radius:20px;padding:32px;
+ box-shadow:0 15px 40px rgba(0,0,0,0.6);
 }
 .hidden{display:none!important}
-.eyebrow{color:var(—cyan);font-size:12px;letter-spacing:2px;font-weight:700}
-h1{font-size:clamp(28px,6vw,48px);line-height:1.35;margin:12px 0}
-h2{font-size:25px;margin:8px 0 15px}
-p{line-height:1.9;color:#c1cde0}
+.eyebrow{color:var(—cyan);font-size:13px;letter-spacing:2px;font-weight:700;margin-bottom:8px}
+h1{font-size:clamp(26px,5vw,42px);line-height:1.4;margin:12px 0;color:var(—white)}
+h2{font-size:24px;margin:8px 0 15px;color:var(—white)}
+p{line-height:2;color:#f1f5f9;font-size:17px}
 .muted{color:var(—muted)}
 .gold{color:var(—gold)}
 .cyan{color:var(—cyan)}
 input{
- width:100%;padding:15px 17px;border-radius:12px;
- border:1px solid var(—line);background:#091426;color:white;
- outline:none;margin:12px 0;
+ width:100%;padding:16px 18px;border-radius:12px;
+ border:2px solid var(—line);background:#070d1e;color:white;
+ outline:none;margin:14px 0;font-size:17px;
 }
 input:focus{border-color:var(—cyan)}
 .btn{
- border:0;border-radius:12px;padding:14px 22px;
- background:var(—cyan);color:#06111e;font-weight:700;
- transition:.2s;
+ border:0;border-radius:12px;padding:15px 24px;
+ background:var(—cyan);color:#070d1e;font-weight:700;
+ transition:.2s;font-size:16px;
 }
-.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
-.btn.secondary{background:#203451;color:white;border:1px solid #3c5476}
-.btn.goldbtn{background:var(—gold);color:#1c1720}
+.btn:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn.secondary{background:#1e293b;color:white;border:2px solid #475569}
+.btn.goldbtn{background:var(—gold);color:#0f172a}
 .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
 .orbit{
  min-height:260px;display:grid;place-items:center;position:relative;
- background:radial-gradient(circle,#193653,#0b172a 65%);
- border-radius:18px;overflow:hidden;
+ background:#070d1e;border:2px solid var(—line);
+ border-radius:16px;overflow:hidden;
 }
 .planet{
- width:145px;height:145px;border-radius:50%;
- background:radial-gradient(circle at 30% 25%,#d4e7ef,#5b91aa 35%,#173a57 75%);
- box-shadow:0 0 50px #62e5f355;
+ width:130px;height:130px;border-radius:50%;
+ background:radial-gradient(circle at 30% 25%,#e0f2fe,#38bdf8 35%,#0369a1 75%);
+ box-shadow:0 0 30px rgba(56,189,248,0.4);
 }
-.orbit:before,.orbit:after{
- content:"";position:absolute;width:230px;height:90px;
- border:1px solid #70d9ec88;border-radius:50%;transform:rotate(-25deg)
-}
-.orbit:after{transform:rotate(35deg);width:270px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-.stat{background:#0a1629;border:1px solid var(—line);padding:14px;border-radius:13px;text-align:center}
-.stat strong{display:block;color:var(—gold);font-size:22px}
-.stat small{color:var(—muted)}
-.progress-wrap{margin:22px 0}
-.progress-head{display:flex;justify-content:space-between;color:var(—muted);font-size:13px}
-.progress{height:7px;background:#263750;border-radius:20px;margin-top:9px;overflow:hidden}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
+.stat{background:#070d1e;border:2px solid var(—line);padding:16px;border-radius:14px;text-align:center}
+.stat strong{display:block;color:var(—gold);font-size:24px;margin-bottom:4px}
+.stat small{color:var(—muted);font-size:13px;font-weight:500}
+.progress-wrap{margin:25px 0}
+.progress-head{display:flex;justify-content:space-between;color:var(—muted);font-size:14px;font-weight:600}
+.progress{height:10px;background:#070d1e;border:1px solid var(—line);border-radius:20px;margin-top:10px;overflow:hidden}
 .progress div{height:100%;background:linear-gradient(90deg,var(—cyan),var(—gold));width:0;transition:.3s}
 .challenge-head{display:flex;justify-content:space-between;gap:15px;align-items:center}
 .timer{
- border:1px solid #42627e;background:#0a1729;border-radius:12px;
- padding:10px 16px;color:var(—gold);font-weight:700;font-size:20px;
- min-width:95px;text-align:center;
+ border:2px solid var(—line);background:#070d1e;border-radius:12px;
+ padding:10px 18px;color:var(—gold);font-weight:700;font-size:20px;
+ min-width:100px;text-align:center;
 }
-.timer.warning{color:#ff7777;border-color:#ff7777;animation:pulse .7s infinite alternate}
-@keyframes pulse{to{opacity:.5}}
 .task{
- margin:22px 0;padding:22px;background:#0a1629;border:1px solid var(—line);
+ margin:22px 0;padding:26px;background:#070d1e;border:2px solid var(—line);
  border-radius:16px;
 }
-.
- choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
 .choice{
- padding:17px;border-radius:12px;border:1px solid #344b6c;
- background:#14243b;color:white;text-align:right;
+ padding:18px;border-radius:12px;border:2px solid var(—line);
+ background:#111c38;color:white;text-align:right;font-size:16px;font-weight:600;
 }
-.choice:hover{border-color:var(—cyan);background:#1b3450}
-.choice.selected{border-color:var(—cyan);background:#153e50}
-.choice.correct{border-color:var(—green)}
-.choice.wrong{border-color:#ff7777}
-.feedback{margin-top:15px;color:var(—gold);min-height:25px}
+.choice:hover{border-color:var(—cyan);background:#1a284d}
+.choice.correct{border-color:var(—green);background:#064e3b;color:#fff}
+.choice.wrong{border-color:var(—red);background:#7f1d1d;color:#fff}
+.feedback{margin-top:18px;color:var(—gold);min-height:25px;font-weight:700;font-size:17px}
 .event-card{
- margin-top:20px;border:1px solid #75613a;
- background:linear-gradient(140deg,#28243a,#121d31);
- border-radius:18px;padding:25px;
+ margin-top:20px;border:2px solid #ca8a04;
+ background:#162240;
+ border-radius:18px;padding:28px;
 }
-.event-date{color:var(—gold);font-size:13px;font-weight:700}
-.event-card h2{color:var(—gold)}
-.event-card .fact{border-right:3px solid var(—cyan);padding-right:15px;margin:18px 0}
-.event-card img{width:100%;max-height:220px;object-fit:cover;border-radius:12px;margin-top:12px}
-.badge{display:inline-block;border:1px solid #56708e;border-radius:30px;padding:5px 12px;color:var(—cyan);font-size:12px}
-.board{width:100%;border-collapse:collapse;margin-top:15px}
-.board th,.board td{padding:13px 8px;border-bottom:1px solid var(—line);text-align:center}
-.board th{color:var(—cyan);font-size:13px}
-.board tr:first-child td{color:var(—gold)}
+.event-date{color:var(—gold);font-size:15px;font-weight:700;margin-bottom:8px}
+.event-card h2{color:var(—gold);font-size:26px}
+.event-card .fact{border-right:4px solid var(—cyan);padding-right:16px;margin:20px 0;color:#f8fafc;font-size:17px;line-height:2}
+.badge{display:inline-block;border:2px solid #475569;border-radius:30px;padding:6px 14px;color:var(—cyan);font-size:13px;background:#070d1e;font-weight:600}
+.board{width:100%;border-collapse:collapse;margin-top:18px}
+.board th,.board td{padding:14px 10px;border-bottom:2px solid var(—line);text-align:center;font-size:16px}
+.board th{color:var(—cyan);font-size:14px}
+.board tr:first-child td{color:var(—gold);font-weight:bold}
 .certificate{
- border:5px double var(—gold);padding:30px;text-align:center;
- background:#101b30;border-radius:12px;margin-top:20px;
+ border:6px double var(—gold);padding:35px;text-align:center;
+ background:#070d1e;border-radius:16px;margin-top:20px;
 }
 .certificate h1{color:var(—gold)}
-.footer{text-align:center;color:#687d99;font-size:12px;margin-top:30px}
+.footer{text-align:center;color:#94a3b8;font-size:13px;margin-top:30px;font-weight:500}
 @media(max-width:650px){
  header{padding:16px 5%}.hero-grid{grid-template-columns:1fr}
  .orbit{min-height:190px}.choices{grid-template-columns:1fr}
- .panel{padding:20px}.stats{gap:6px}.stat{padding:10px 5px}
+ .panel{padding:20px}.stats{gap:8px}.stat{padding:12px 8px}
 }
 </style>
 </head>
@@ -147,15 +136,15 @@ input:focus{border-color:var(—cyan)}
    <div class="eyebrow">MISSION CONTROL · 2023</div>
    <h1>من الأرض إلى<br><span class="cyan">محطة الفضاء الدولية</span></h1>
    <p>مهمتك أن تعيش رحلة ريانة برناوي وعلي القرني في مهمة AX-2. اختبر تركيزك، اتخذ القرارات، واكتشف الأحداث الحقيقية التي صنعت التاريخ.</p>
-   <label class="muted">أدخل اسم قائد المهمة</label>
+   <label class="muted" style="display:block;margin-top:15px;font-weight:600;">أدخل اسم قائد المهمة</label>
    <input id="playerName" maxlength="24" placeholder="اسمك هنا">
-   <button class="btn" onclick="startGame()">ابدأ المهمة ←</button>
+   <button class="btn" onclick="startGame()" style="margin-top:10px;width:100%;">ابدأ المهمة ←</button>
   </div>
   <div class="orbit"><div class="planet"></div></div>
  </div>
  <div class="stats">
   <div class="stat"><strong>4</strong><small>مراحل تفاعلية</small></div>
-  <div class="stat"><strong>60</strong><small>ثانية لكل تحدٍ</small></div>
+  <div class="stat"><strong>بدوّن حد</strong><small>الوقت الإجمالي</small></div>
   <div class="stat"><strong>AX-2</strong><small>مهمة تاريخية</small></div>
  </div>
 </section>
@@ -175,11 +164,11 @@ input:focus{border-color:var(—cyan)}
  <p id="stageIntro"></p>
  <div class="task">
   <span class="badge">MISSION CHALLENGE</span>
-  <h2 id="question"></h2>
+  <h2 id="question" style="font-size:22px;margin-top:12px;"></h2>
   <div class="choices" id="choices"></div>
   <div class="feedback" id="feedback"></div>
  </div>
- <div class="muted" style="font-size:12px">التحديات محاكاة تعليمية مبسطة وليست إجراءات تشغيل حقيقية للمركبة الفضائية.</div>
+ <div class="muted" style="font-size:13px">التحديات محاكاة تعليمية مبسطة وليست إجراءات تشغيل حقيقية للمركبة الفضائية.</div>
 </section>
 
 <section id="event" class="panel hidden">
@@ -187,12 +176,13 @@ input:focus{border-color:var(—cyan)}
  <div class="event-card">
   <div class="event-date" id="eventDate"></div>
   <h2 id="eventTitle"></h2>
-  <p id="eventText"></p>
-  <div class="fact" id="eventFact"></div>
+  <p id="eventText" style="font-size:18px;color:#ffffff;"></p>
+  
+<div class="fact" id="eventFact"></div>
   <span class="badge" id="eventTag"></span>
  </div>
  <div class="actions">
-  <button class="btn goldbtn" id="nextButton" onclick="nextStage()">متابعة الرحلة ←</button>
+  <button class="btn goldbtn" id="nextButton" onclick="nextStage()" style="width:100%;">متابعة الرحلة ←</button>
  </div>
 </section>
 
@@ -208,16 +198,16 @@ input:focus{border-color:var(—cyan)}
  <div class="certificate" id="certificate">
   <div class="eyebrow">CERTIFICATE OF COMPLETION</div>
   <h1>شهادة إتمام المهمة</h1>
-  <p>تشهد هذه الشهادة بأن</p>
-  <h2 id="certName" class="cyan"></h2>
-  <p>قد أكمل التجربة التفاعلية التعليمية<br>رحلة AX-2 إلى محطة الفضاء الدولية</p>
-  <h2 class="gold" id="certScore"></h2>
+  <p style="color:#cbd5e1;">تشهد هذه الشهادة بأن</p>
+  <h2 id="certName" class="cyan" style="font-size:32px;margin:12px 0;"></h2>
+  <p style="color:#cbd5e1;">قد أكمل التجربة التفاعلية التعليمية<br>رحلة AX-2 إلى محطة الفضاء الدولية</p>
+  <h2 class="gold" id="certScore" style="font-size:28px;margin:15px 0;"></h2>
   <p class="muted">شهادة رمزية تعليمية غير رسمية</p>
  </div>
  <div class="actions">
-  <button class="btn goldbtn" onclick="window.print()">طباعة / حفظ الشهادة PDF</button>
-  <button class="btn secondary" onclick="showBoard()">لوحة المتصدرين</button>
-  <button class="btn secondary" onclick="location.reload()">إعادة التجربة</button>
+  <button class="btn goldbtn" onclick="window.print()" style="flex:1;">طباعة / حفظ الشهادة PDF</button>
+  <button class="btn secondary" onclick="showBoard()" style="flex:1;">لوحة المتصدرين</button>
+  <button class="btn secondary" onclick="location.reload()" style="width:100%;">إعادة التجربة</button>
  </div>
 </section>
 
@@ -230,10 +220,10 @@ input:focus{border-color:var(—cyan)}
   <tbody id="boardBody"></tbody>
  </table>
  <div class="actions">
-  <button class="btn secondary" onclick="backFromBoard()">رجوع</button>
-  <button class="btn secondary" onclick="clearBoard()">مسح النتائج</button>
+  <button class="btn secondary" onclick="backFromBoard()" style="width:100%;">رجوع</button>
+  <button class="btn secondary" onclick="clearBoard()" style="width:100%;">مسح النتائج</button>
  </div>
- <p class="muted" style="font-size:12px">ملاحظة: النتائج محفوظة محليًا في هذا المتصفح فقط، وقد تختفي عند مسح بيانات المتصفح.</p>
+ <p class="muted" style="font-size:13px;margin-top:15px;text-align:center;">ملاحظة: النتائج محفوظة محليًا في هذا المتصفح فقط.</p>
 </section>
 
 <div class="footer">AX-2 EDUCATIONAL INTERACTIVE EXPERIENCE · 2023</div>
@@ -378,7 +368,8 @@ function endGame(){
  document.getElementById("finalScore").textContent=score;
  const m=Math.floor(totalElapsed/60);
  const s=totalElapsed%60;
- document.getElementById("finalTime").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+ document.getElementById("finalTime").textContent=String(m).padStart(2,"0")+":"+String(s).
+  padStart(2,"0");
  document.getElementById("certName").textContent=player;
  document.getElementById("certScore").textContent=score+" نقطة";
  saveResult();
@@ -391,8 +382,7 @@ function saveResult(){
  const timeFormatted=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
  list.push({name:player,score:score,time:timeFormatted,rawTime:totalElapsed,date:new Date().toLocaleDateString("ar-SA")});
  list.sort((a,b)=>b.score-a.score||a.rawTime-b.rawTime);
- localStorage.
-  setItem("ax2_leaderboard",JSON.stringify(list.slice(0,20)));
+ localStorage.setItem("ax2_leaderboard",JSON.stringify(list.slice(0,20)));
 }
 function showBoard(){
  previousSection=document.getElementById("finish").classList.contains("hidden")?"event":"finish";
